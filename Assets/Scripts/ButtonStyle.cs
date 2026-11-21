@@ -8,37 +8,57 @@ public class ButtonStyle : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [Header("References")]
     [SerializeField] private Image background;
     [SerializeField] private TextMeshProUGUI buttonText;
+    [SerializeField] private CameraController cameraController;
 
     [Header("Colours")]
     [SerializeField] private Color normalTextColour = Color.white;
     [SerializeField] private Color normalBackgroundColour = new Color(1f, 1f, 1f, 0f);
     [SerializeField] private Color hoveredBackgroundColour = new Color(0.92f, 0.82f, 0.55f, 1f);
 
-    private Color hoveredTextColour = Color.white;
+    private bool isHovered;
 
     private void Awake()
     {
-        if(Camera.main != null)
-        {
-            hoveredTextColour = Camera.main.backgroundColor;
-            hoveredTextColour.a = 1f;
-        }
-           
+        if (cameraController == null && Camera.main != null)
+            cameraController = Camera.main.GetComponent<CameraController>();
 
-        UpdateStyle(false);
+        UpdateStyle();
+    }
+
+    private void OnEnable()
+    {
+        if (cameraController != null)
+            cameraController.BackgroundColorChanged += OnBackgroundColorChanged;
+    }
+
+    private void OnDisable()
+    {
+        if (cameraController != null)
+            cameraController.BackgroundColorChanged -= OnBackgroundColorChanged;
+
+        isHovered = false;
+        UpdateStyle();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        UpdateStyle(true);
+        isHovered = true;
+        UpdateStyle();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        UpdateStyle(false);
+        isHovered = false;
+        UpdateStyle();
+    }
+      
+    private void OnBackgroundColorChanged(Color color)
+    {
+        if (isHovered)
+            UpdateStyle();
     }
 
-    private void UpdateStyle(bool isHovered)
+    private void UpdateStyle()
     {
         if (background != null)
         {
@@ -50,8 +70,18 @@ public class ButtonStyle : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (buttonText != null)
         {
             buttonText.color = isHovered
-                ? hoveredTextColour
+                ? GetHoveredTextColour()
                 : normalTextColour;
         }
+    }
+      
+    private Color GetHoveredTextColour()
+    {
+        Color colour = cameraController != null
+            ? cameraController.BackgroundColor
+            : Color.black;
+
+        colour.a = 1f;
+        return colour;
     }
 }

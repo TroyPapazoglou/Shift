@@ -1,4 +1,5 @@
 using PrimeTween;
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -25,6 +26,10 @@ public class CameraController : MonoBehaviour
     private Tween positionTween;
     private Tween sizeTween;
     private Tween backgroundTween;
+
+    public event Action<Color> BackgroundColorChanged;
+
+    public Color BackgroundColor => cam.backgroundColor;
 
     private void Awake()
     {
@@ -146,7 +151,7 @@ public class CameraController : MonoBehaviour
         if (backgroundTween.isAlive) backgroundTween.Stop();
 
         cam.clearFlags = CameraClearFlags.SolidColor;
-        cam.backgroundColor = color;
+        ApplyBackground(color);
     }
 
     public void FadeBackgroundColor(Color color, float duration)
@@ -154,6 +159,18 @@ public class CameraController : MonoBehaviour
         if (backgroundTween.isAlive) backgroundTween.Stop();
 
         cam.clearFlags = CameraClearFlags.SolidColor;
-        backgroundTween = Tween.CameraBackgroundColor(cam, color, duration, Ease.InOutSine);
+
+        Color start = cam.backgroundColor;
+
+        backgroundTween = Tween.Custom(
+            0f, 1f, duration,
+            t => ApplyBackground(Color.Lerp(start, color, t)),
+            Ease.InOutSine);
+    }
+
+    private void ApplyBackground(Color color)
+    {
+        cam.backgroundColor = color;
+        BackgroundColorChanged?.Invoke(color);
     }
 }
