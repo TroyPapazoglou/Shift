@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ae3c1bd1b457b45bf8fa3828300439, type: 3}
+  m_Name: LevelDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::LevelDatabase
+  levels:
+  - {fileID: 11400000, guid: c991dbaead7bf7a49a613caa3e447af2, type: 2}
+  - {fileID: 11400000, guid: 87386d22bb374484ea0547e961e1dfb6, type: 2}
+  - {fileID: 11400000, guid: d27c25d9102871c479077a78ff89881b, type: 2}
+  - {fileID: 11400000, guid: dd58648a767152944b4b8ec06cc27f39, type: 2}
+  - {fileID: 11400000, guid: efb99d9ff6e4fd34d9d4c1a781b035f7, type: 2}
+  - {fileID: 11400000, guid: 6e1f9ffe42c851c4f902a09c72408d39, type: 2}
+  - {fileID: 11400000, guid: ebf25a0b2336cfe4fa6b421877771d55, type: 2}
+  - {fileID: 11400000, guid: a848f63ae127af245bf74c8b6ba7b4ea, type: 2}
+  - {fileID: 11400000, guid: faba2f1444d2323429c586d51976a18d, type: 2}
+  - {fileID: 11400000, guid: d02ef3d18090b73449622dca14984676, type: 2}
+  - {fileID: 11400000, guid: 54e63d3373c077445acbc0316dae6f75, type: 2}
+  - {fileID: 11400000, guid: 4b5fb547bcc857248a31a5ed2e889e1e, type: 2}
+  - {fileID: 11400000, guid: c9f4b1197a3c945439429e1d314d029c, type: 2}
+  - {fileID: 11400000, guid: 710a53e5b56feee49a4f6a59c38b2728, type: 2}
+  - {fileID: 11400000, guid: 940c289988b62bf49baeaf54873bc366, type: 2}
+  - {fileID: 11400000, guid: db6213d5cb0a691409cdd8821a6ae169, type: 2}
+  - {fileID: 11400000, guid: 65586d40ae551f14c807c1c49173112b, type: 2}
+  - {fileID: 11400000, guid: 7113ce934cd5ddb41a30d24c5a811a66, type: 2}
+  tileVisuals:
+    empty: {fileID: 21300000, guid: d77b922f4cdcc8b43907957fcbad034a, type: 3}
+    wall: {fileID: 21300000, guid: bef04185def6b574b9f3e210ab133b67, type: 3}
+    player: {fileID: 21300000, guid: d77b922f4cdcc8b43907957fcbad034a, type: 3}
+    exit: {fileID: 21300000, guid: d09030ce9b706154aa3008cbfc9b77d5, type: 3}
+  tilePrefab: {fileID: 1837773225214092536, guid: 1e75d444254723040a24f42723c3dcdb, type: 3}
+  tileSpacing: 3
