@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -104,8 +105,14 @@ public class PlayerInputHandler : MonoBehaviour
 
         uiHits.Clear();
         EventSystem.current.RaycastAll(data, uiHits);
+               
+        for (int i = 0; i < uiHits.Count; i++)
+        {
+            if (uiHits[i].module is GraphicRaycaster)
+                return true;
+        }
 
-        return uiHits.Count > 0;
+        return false;
     }   
      
     private void RaiseMove(Vector2 input)

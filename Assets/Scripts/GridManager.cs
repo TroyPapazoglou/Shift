@@ -45,6 +45,10 @@ public class GridManager : MonoBehaviour
     [SerializeField] private float introBackgroundDuration = 1.5f;
     [SerializeField] private float levelBackgroundDuration = 0.8f;
 
+    [Header("Wall Feedback")]
+    [SerializeField] private float bumpDistance = 0.18f;   
+    [SerializeField] private float bumpDuration = 0.18f;
+
     private LevelData[] Levels => levelDatabase != null ? levelDatabase.Levels : null;
     private float TileSpacing => levelDatabase.TileSpacing;
 
@@ -420,6 +424,7 @@ public class GridManager : MonoBehaviour
         yield return new WaitForSeconds(playerSpawnDuration);
     }
 
+
     private IEnumerator OpenOverviewRoutine()
     {
         isLoading = true;
@@ -519,10 +524,24 @@ public class GridManager : MonoBehaviour
         if (isMoving || isLoading || isInOverview || activeBoard == null)
             return;
 
+        playerVisual.CancelBump(GridToWorld(activeBoard.PlayerPosition));
+
         if (direction.x != 0)
             ShiftRow(activeBoard.PlayerPosition.y, direction.x);
         else if (direction.y != 0)
             ShiftColumn(activeBoard.PlayerPosition.x, direction.y);
+    }
+
+    private void PlayBlockedFeedback(int direction, bool isRow)
+    {       
+        Vector2 worldDirection = isRow
+            ? new Vector2(direction, 0f)
+            : new Vector2(0f, -direction);
+
+        Vector3 rest = GridToWorld(activeBoard.PlayerPosition);
+
+        playerVisual.Bump(rest, worldDirection, bumpDistance * TileSpacing, bumpDuration);
+              
     }
 
     private static bool IsShiftable(TileType type)
@@ -580,14 +599,17 @@ public class GridManager : MonoBehaviour
         TileType[,] grid = board.Grid;
         Tile[,] tileViews = board.Tiles;
         int width = board.Data.Width;
-        int height = board.Data.Height;
+        int height = board.Data.Height;      
+
+        direction = direction > 0 ? 1 : -1;
 
         int count = positions.Count;
 
         if (count <= 1)
+        {
+            PlayBlockedFeedback(direction, isRow);
             return;
-
-        direction = direction > 0 ? 1 : -1;
+        }           
 
         TileType[] newTypes = new TileType[count];
         Tile[] newTiles = new Tile[count];
@@ -612,7 +634,7 @@ public class GridManager : MonoBehaviour
 
         if (targetType == TileType.Wall)
         {
-            Debug.Log("Player hit wall!");
+            PlayBlockedFeedback(direction, isRow);
             return;
         }
 

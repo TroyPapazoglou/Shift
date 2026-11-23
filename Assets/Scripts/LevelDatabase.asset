@@ -35,6 +35,6 @@ MonoBehaviour:
     empty: {fileID: 21300000, guid: d77b922f4cdcc8b43907957fcbad034a, type: 3}
     wall: {fileID: 21300000, guid: bef04185def6b574b9f3e210ab133b67, type: 3}
     player: {fileID: 21300000, guid: d77b922f4cdcc8b43907957fcbad034a, type: 3}
-    exit: {fileID: 21300000, guid: d09030ce9b706154aa3008cbfc9b77d5, type: 3}
+    exit: {fileID: 8156622943692282034, guid: 89b6850164d05cd4c8d3b05965eff107, type: 3}
   tilePrefab: {fileID: 1837773225214092536, guid: 1e75d444254723040a24f42723c3dcdb, type: 3}
   tileSpacing: 3

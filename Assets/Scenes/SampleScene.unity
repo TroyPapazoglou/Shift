@@ -601,7 +601,7 @@ MonoBehaviour:
   buttonText: {fileID: 15901046}
   normalTextColour: {r: 1, g: 1, b: 1, a: 1}
   normalBackgroundColour: {r: 1, g: 1, b: 1, a: 0}
-  hoveredBackgroundColour: {r: 0.92, g: 0.82, b: 0.55, a: 1}
+  hoveredBackgroundColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &204277607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9968781c078308447a6be6ad33443254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  minSwipeFraction: 0.06
+  minAxisDominance: 1.2
 --- !u!4 &542133489
 Transform:
   m_ObjectHideFlags: 0
@@ -1380,7 +1382,7 @@ MonoBehaviour:
   buttonText: {fileID: 1366626838}
   normalTextColour: {r: 1, g: 1, b: 1, a: 1}
   normalBackgroundColour: {r: 1, g: 1, b: 1, a: 0}
-  hoveredBackgroundColour: {r: 0.92, g: 0.82, b: 0.55, a: 1}
+  hoveredBackgroundColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &741005808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,6 +1513,7 @@ GameObject:
   - component: {fileID: 1062769195}
   - component: {fileID: 1062769194}
   - component: {fileID: 1062769193}
+  - component: {fileID: 1062769197}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1603,6 +1606,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1062769197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062769192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ad163571bb5ca48b65296b32fd884e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UITheme
+  cameraController: {fileID: 246399176}
 --- !u!1 &1182816766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,7 +2121,7 @@ MonoBehaviour:
   buttonText: {fileID: 165546077}
   normalTextColour: {r: 1, g: 1, b: 1, a: 1}
   normalBackgroundColour: {r: 1, g: 1, b: 1, a: 0}
-  hoveredBackgroundColour: {r: 0.92, g: 0.82, b: 0.55, a: 1}
+  hoveredBackgroundColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1576869006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,6 +2239,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e478709d46be9b4cb0cdf56bba0e031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
+--- !u!1 &2017003628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2017003630}
+  - component: {fileID: 2017003629}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2017003629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017003628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3221c9342f54f594c8d81cd0e3543a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!4 &2017003630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017003628}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1335, y: 391.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2071057491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,6 +2372,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 377714879}
+  - {fileID: 2017003630}
   - {fileID: 542133489}
   - {fileID: 681117473}
   - {fileID: 246399177}
