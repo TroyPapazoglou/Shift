@@ -34,7 +34,7 @@ Plan your movements carefully, navigate around obstacles, and find a way to reac
 | Empty | <img width="256" height="256" alt="Empty" src="https://github.com/user-attachments/assets/e0d4f352-7608-425e-ae12-ddbd2ffd28fb" /> | Moves with the player when shifting rows or columns. |
 | Player | <img width="256" height="256" alt="Player" src="https://github.com/user-attachments/assets/c4dbade7-d45e-4273-8a8c-4d52a6070716" /> | The player moves along the selected row or column. |
 | Wall | <img width="256" height="256" alt="Wall" src="https://github.com/user-attachments/assets/f4b04bee-6cc0-40f2-95d2-f9d62d3df85b" /> | Remains fixed and blocks movement when the player would move into or through it. |
-| Void | <img width="256" height="256" alt="Void" src="https://github.com/user-attachments/assets/c771ca2c-5a5e-4090-be5c-73277df2e95e" /> | Remains fixed when rows or columns are shifted. |
+| Void | <img width="256" height="256" alt="Void" src="https://github.com/user-attachments/assets/c771ca2c-5a5e-4090-be5c-73277df2e95e" /> | Remains fixed and creates opportunities to bypass obstacles and reach areas that would otherwise be inaccessible. |
 | Exit | <img width="256" height="256" alt="Exit" src="https://github.com/user-attachments/assets/f3ccfa30-10e8-4911-b653-59e46abc0029" /> | Remains fixed. Reaching it completes the level. |
 
 
