@@ -14,7 +14,7 @@ Download the ZIP file from the latest release.
 
 Extract the ZIP to a folder.
 
-Run OneMoreWave.exe to play.
+Run Shift.exe to play.
 
 
 ### Android
