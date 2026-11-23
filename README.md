@@ -4,6 +4,35 @@
 
 Shift between rows and columns, navigate around obstacles, and find a path to the exit. Think ahead, understand how the grid behaves, and work your way through each puzzle.
 
+## Download
+
+Want to give it a try?
+
+### Windows
+
+Download the ZIP file from the latest release.
+
+Extract the ZIP to a folder.
+
+Run OneMoreWave.exe to play.
+
+
+### Android
+
+Download the Android ZIP file from the latest release onto your phone.
+
+Open your Files app and extract the ZIP.
+
+Open the extracted folder and tap the .apk file to install the game.
+
+If prompted, allow your browser or Files app to install unknown apps, then continue with the installation.
+
+Once installed, open One More Wave and play!
+
+Note: Android may show a security warning because the game isn't installed through the Google Play Store.
+
+This is an early development build. Bugs and gameplay changes are expected!
+
 ## Gameplay
 
 Shift is a minimalist puzzle game built around a simple concept: moving through a fixed grid using row and column shifts.
@@ -76,7 +105,7 @@ The exit is the player's ultimate destination. It remains fixed throughout the l
 
 ## Development
 
-Shift is an independent game project focused on creating an engaging puzzle experience through a small set of interconnected mechanics.
+Shift is an game project focused on creating an engaging puzzle experience through a small set of interconnected mechanics.
 
 Development focuses on grid movement, tile interactions, level design, and creating satisfying visual feedback for player interactions.
 
@@ -88,7 +117,7 @@ Shift is developed using Unity and C#.
 
 This repository contains the game's source code and Unity project files. It is publicly available for anyone interested in exploring the implementation of the grid system, tile interactions, movement logic, and puzzle mechanics.
 
-Feel free to explore the project and see how the different systems work together.
+If you're interested in the technical side of the project, feel free to explore the source code!
 
 ## Roadmap
 
